@@ -1,0 +1,176 @@
+version: 2
+models:
+  - name: fct_orders
+    description: Fact table for orders.
+    columns:
+      - name: order_date
+        description: The date an order was made
+        tests:                  
+          - not_null
+      - name: order_id
+        description: Unique identifier for each order
+        tests:         
+          - unique
+          - not_null
+      - name: product_id
+        description: Unique identifier for each order 
+        tests:
+          - not_null
+      - name: customer_id
+        description: Unique identifier for each customer
+        tests:   
+          - not_null
+      - name: customer_segment
+        description: '{{ doc("customer_segment") }}'
+        tests:              
+          - not_null
+          - accepted_values:
+             values:
+               - GoldMines
+               - High Value Customers
+               - Loyal Customer
+               - Whales
+               - About to lose GoldMine
+               - About to lose HighValueCustomer
+               - About to lose LoyalCustomer
+               - About to lose Whales
+               - Hibernating GoldMines
+               - Hibernating HighValueCustomers
+               - Hibernating LoyalCustomer
+               - Hibernating Whales
+               - Lost Customer
+               - Others
+      - name: payment_methods
+        description: Payment method used by customer to pay to complete their order
+        tests:              
+          - not_null
+          - accepted_values:
+             values:
+               - bank_transfer
+               - coupon
+               - gifcard
+               - card
+      - name: card_type
+        description: The type of card used for the payments made by card payment method 
+        tests:
+          - not_null
+          - accepted_values:
+             values: 
+               - MasterCard
+               - Visa
+               - American Express
+               - Discover
+      - name: customer_location
+        description: Location of the customer
+      - name: order_type
+        description: '{{ doc("order_type") }}'
+      - name: transaction_status
+        description: '{{ doc("transaction_status") }}'
+      - name: unit_price
+        description: The selling price of a single unit of a product
+      - name: quantity
+        description: The quantity of products ordered in a trasaction / order
+      - name: amount_spent
+        description: The total amount spent in a transaction / order
+    
+  - name: customer_reviews
+    description: Table containing each customer's review
+    columns:
+      - name: review_id
+        description: Unique ID of each  review 
+        tests:              
+          - unique
+          - not_null
+      - name: customer_id
+        description: Unqiue ID of each customer
+        tests: 
+          - not_null
+      - name: nps_score
+        description: '{{ doc("nps_score") }}'
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between: 
+             min_value: 0
+             max_value: 10
+      - name: csat_score
+        description: '{{ doc("csat_score") }}'
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: 0
+             max_value: 100
+      - name: reviews
+        description: Reviews from the customer
+      - name: review_date
+        description: Date each review was uploaded
+        tests: 
+          - not_null
+
+  - name: customer_analysis
+    description: Table containing data for various customer's analytics
+    columns: 
+      - name: customer_id
+        description: Unique identifier for each customer
+        tests:
+          - unique
+          - not_null
+      - name: customer_location
+        description: Location of the customer
+        tests:              
+          - not_null
+      - name: age_group
+        description: '{{ doc("age_group") }}'
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Child
+                - Youth
+                - Young Adult
+                - Middle Aged
+                - Elderly
+      - name: first_order_date
+        description: Date the customer first made an order
+        tests:
+          - not_null
+      - name: recency
+        description: The last time a customer' completed order was seen, measured in days from analysis date 
+        tests:
+          - not_null
+      - name: frequency
+        description: The number of times a customer has made a completed order 
+        tests:             
+          - not_null
+      - name: monetary_value
+        description: The total amount of money spent throughout by said customer's patronage
+        tests:
+          - not_null
+              #- dbt_utils.expression_is_true:
+                  #expression: ">= 0"
+                
+      - name: recency_rank
+        description: Customer's rank on 1-4 scale based on last time said customer ordered
+        tests:
+          - not_null
+      - name: frequency_rank
+        description: Customer's rank on 1-4 scale based on number of completed orders said customer made
+        tests:
+          - not_null
+      - name: monetary_rank
+        description: Customer's rank on 1-4 scale based on total amount said customer spent throughout stay
+        tests: 
+          - not_null
+      - name: avg_nps_score
+        description: An average of a customer's NPS rating throughout customer's active stay
+        tests: 
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: 0
+             max_value: 10
+          - not_null 
+      - name: avg_csat_score
+        description: An average of a customer's CSAT rating throughout customer's active stay
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: 0
+             max_value: 100
+    
+      

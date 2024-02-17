@@ -1,0 +1,48 @@
+version: 2
+sources:
+ - name: payments
+   description: A clone of payments schema in the database.
+   database: diversifyshop
+   schema: payments
+   tables:
+       - name: card_details_table
+         description: A table containing each customer's card details
+         columns:
+           - name: cardid
+             description: Unique identifier for each card detail. Primary key of the table
+           - name: customerid
+             description: Unique identifier for each customer. Foreign key to reference customer_table
+           - name: cardtype
+             description: Holds information on the type of card 
+           - name: cardnumber
+             description: Number on the card
+           - name: created_at
+             description: Date when the card detail was updated
+        #source freshness test
+        #freshness: 
+          #warn_after: 
+            #count: 1
+            #period: day 
+        #loaded_at_field: card_created
+
+       - name: payments_table
+         description: A table containing detail of payments
+         columns:
+          - name: paymentid
+            description: Unique identifier for each payment made. Primary key
+          - name: orderid
+            description: Unique identifier for each order made.
+          - name: paymentmethods
+            description: Information on the method with which the customer used to pay for their order          
+          - name: paymentdate
+            description: Date when the payment was made
+#         #source freshness test
+#         #freshness: 
+#           #warn_after: 
+#             #count: 1
+#             #period: day 
+#         #loaded_at_field: Payment_Date
+
+
+# # When working with live data, add test for source freshness, by uncommenting the source freshness test 
+ 

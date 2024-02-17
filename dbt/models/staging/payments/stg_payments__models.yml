@@ -1,0 +1,61 @@
+version: 2
+models:
+  - name: stg_payments__card_details
+    description: A table containing each customer's card details
+    columns:
+      - name: card_id
+        description: Unique identifier for each card detail. Primary key of the table
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Unique identifier for each customer. Foreign key to reference customer_table
+        tests:
+          - not_null
+      - name: card_type
+        description: Holds information on the type of card 
+        tests:  
+            - accepted_values:
+                values: 
+                  - MasterCard
+                  - Visa
+                  - American Express
+                  - Discover
+      - name: card_number
+        description: Number on the card
+        tests: 
+          - dbt_expectations.expect_column_value_length_to_equal:
+              value: 16
+      - name: card_created_at
+        description: Date when the card detail was updated
+        tests: 
+          - not_null
+  
+  - name: stg_payments
+    description: A table containing detail of payments
+    columns:
+      - name: payment_id
+        description: Unique identifier for each payment made. Primary key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Unique identifier for each order made.
+        tests: 
+          - not_null  
+      - name: payment_methods
+        description: Information on the method with which the customer used to pay for their order          
+        tests:
+          - accepted_values:
+             values:
+               - 'bank_transfer'
+               - 'card'
+               - 'coupon' 
+               - 'giftcard'
+      - name: payment_date
+        description: Date when the payment was made
+        
+              
+
+
+         

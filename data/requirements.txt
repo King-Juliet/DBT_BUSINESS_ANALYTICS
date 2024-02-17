@@ -1,0 +1,7 @@
+pandas
+pyarrow
+numpy 
+Faker
+psycopg2-binary
+pyodbc
+sqlalchemy

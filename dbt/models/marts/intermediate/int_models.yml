@@ -1,0 +1,102 @@
+version: 2
+models:
+    # - name: int_pivot_payments_method
+    #   description: Intermediate model holding payments in pivot table format 
+    #   columns:
+    #     - name: order_id
+    #       description: Unique identifier for each order made by a customer
+    #       tests:
+    #         - unique
+    #         - not_null
+    #     - name: bank_transfer_amount
+    #       description: Amount paid for an order by bank transfer
+    #       tests:
+    #     - name: card_amount
+    #       description: Amount paid for an order by card payment
+    #       tests: 
+    #     - name: coupon_amount
+    #       description: Amount paid for an order using coupon
+    #       tests:
+    #     - name: gifcard_amount
+    #       description: Amount paid for an order using gift card
+    #     - name: total_amount
+    #       description: Sum of amount paid through all the payment mode for a single order
+              
+    - name: int_rfm_calc
+      descripption: Intermediate model to calculate RFM Segment of each customer.
+      columns:
+        - name: customer_id
+          description: Unique identifier for each customer
+          tests:
+            - unique
+            - not_null
+        - name: first_order_date
+          description: The first date each placed an order
+          tests:
+            - not_null
+        - name: last_order_date
+          description: The most recent date each customer placed a completed order
+          tests: 
+            - not_null
+        - name: order_frequency
+          description: The number of times a customer has made a completed order 
+          tests:
+            - not_null
+        - name: monetary_value
+          description: The total amount of money each customer has spent throughout said customer's patronage
+          tests:
+            - not_null
+        - name: recency_rank
+          description: Customer's rank on 1-4 scale based on last time said customer ordered
+          tests:                
+            - not_null
+        - name: frequency_rank
+          description: Customer's rank on 1-4 scale based on number of completed orders said customer made
+          tests:
+            - not_null
+        - name: monetary_rank
+          description: Customer's rank on 1-4 scale based on total amount said customer spent throughout stay
+          tests:
+            - not_null
+        - name: customer_segment
+          description: '{{ doc("customer_segment") }}'
+          tests:
+            - not_null
+            - accepted_values:
+               values:
+                 - GoldMines
+                 - High Value Customers
+                 - Loyal Customer
+                 - Whales
+                 - About to lose GoldMine
+                 - About to lose HighValueCustomer
+                 - About to lose LoyalCustomer
+                 - About to lose Whales
+                 - Hibernating GoldMines
+                 - Hibernating HighValueCustomers
+                 - Hibernating LoyalCustomer
+                 - Hibernating Whales
+                 - Lost Customer
+                 - Others
+    
+    # - name: int_completed_orders
+    #   description: Table containing data on completed orders
+    #   columns:
+    #     - name: order_id
+    #       description: Unique identifier for each order placed. Primary key of the table
+    #       tests:          
+    #         - unique  
+    #         - not_null
+    #     - name: customer_id
+    #       description: Unique identifier for each customer. Foreign key to reference customer_table
+    #     - name: unit_price
+    #       description: The unit price of each product ordered
+    #       tests:       
+    #         - not_null          
+    #     - name: quantity
+    #       description: Quanity of products ordered for a single transaction
+    #       tests:
+    #         - not_null
+
+
+

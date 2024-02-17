@@ -1,0 +1,1 @@
+[2024-02-17T19:09:02.394+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: src_to_data_platform.src_to_platform_card_details_table manual__2024-02-17T19:07:52.114864+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

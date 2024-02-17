@@ -1,0 +1,15 @@
+diversifyshop:
+    target: dev
+    outputs:
+        dev:
+            type: postgres
+            host: localhost     #host.docker.internal
+            user: postgres
+            password: 'chibuoke3456'
+            port: 5432
+            dbname: diversifyshop
+            schema: dbt_juliet_dev
+            threads: 4
+            
+#run  'dbt debug'  from within a project to test your connection
+

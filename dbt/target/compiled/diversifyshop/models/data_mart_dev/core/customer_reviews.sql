@@ -1,0 +1,1 @@
+SELECT*FROM "diversifyshop"."dbt_juliet_dev"."stg_customer_reviews"

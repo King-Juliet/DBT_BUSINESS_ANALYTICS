@@ -1,0 +1,18 @@
+version: 2
+
+exposures:
+  - name: diversifyshop_dashboard
+    type: dashboard
+    maturity: high
+    url: #url link to the dashboard
+    description: >
+      Dashboard about the business perfromance in terms of sales and customer analytics
+    
+    depends_on: 
+      - ref('customer_analysis')
+      - ref('customer_reviews')
+      - ref('fct_orders')
+
+    owner: 
+      name: Juliet Chibuoke
+      email: chibuokejuliet@gmail.com

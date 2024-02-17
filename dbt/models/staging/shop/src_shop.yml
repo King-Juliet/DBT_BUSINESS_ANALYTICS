@@ -1,0 +1,103 @@
+version: 2
+sources:
+ - name: shop
+   description: A clone of shop schema in the database.
+   database: diversifyshop
+   schema: shop
+   tables:
+     - name: orders_table
+       description: A table containing each customer's orders
+       columns:
+         - name: orderid
+           description: Unique identifier for each order placed. Primary key of the table
+         - name: orderdate
+           description: Date the order was placed
+         - name: customerid
+           description: Unique identifier for each customer. Foreign key to reference customer_table
+         - name: unitprice
+           description: The unit price of each product ordered
+         - name: quantity
+           description: Quanity of products ordered for a single transaction
+         - name: productid
+           description: Unique identifier of product purchased
+         - name: ordertype
+           description: “{{doc('order_type')}}”
+         - name: status
+           description: “{{doc('transaction_status')}}”
+        #source freshness test
+        #freshness: 
+          #warn_after: 
+            #count: 1
+            #period: day 
+        #loaded_at_field: orderdate       
+                  
+     - name: customers_table 
+       description: A table containing each customer's details
+       columns: 
+         - name: customerid
+           description: Unique identifier for each customer. Primary key 
+         - name: firstname
+           description: First name of each customer
+         - name: lastname
+           description: Last name of each customer
+         - name: email
+           description: Email address of each customer       
+         - name: phonenumber
+           description: Phone number of each customer 
+         - name: location
+           description: Location of the customer
+         - name: birthdate
+           description: Date of birth of the customer    
+         - name: created_at
+           description: Date each entry was created
+        #source freshness test
+        #freshness: 
+          #warn_after: 
+            #count: 1
+            #period: day 
+        #loaded_at_field: Cust_Created_At
+
+     - name: customer_reviews_table
+       description: Table containing information on customer reviews
+       columns:
+         - name: reviewid
+           description: Unique identifier of each review given. Primary key.
+         - name: customerid
+           description: Unique identifier of the customer who wrote the review
+         - name: rating_nps
+           description: NPS score given by the customer
+         - name: rating_csat
+           description: CSAT score given by the customer 
+         - name: comment
+           description: Review written by a customer.
+         - name: reviewdate
+           description: Date in which the review was created 
+                #source freshness test
+                #freshness: 
+                  #warn_after: 
+                    #count: 1
+                    #period: day 
+                #loaded_at_field: reviewdate
+
+     - name: products_table
+       description: Table containing the details of each product available in the shop for sale
+       columns:
+         - name: productid
+           description: Unique identifier for each product. Primary key 
+         - name: name
+           description: Name of each product
+         - name: description
+           description: Description of the product
+         - name: unitprice
+           description: Selling price of the product 
+         - name: created_at
+           description: Date each product information was created.                      
+              #source freshness test
+              #freshness: 
+                  #warn_after: 
+                    #count: 1
+                    #period: day 
+              #loaded_at_field: created_at 
+
+
+# # When working with live data, add test for source freshness.

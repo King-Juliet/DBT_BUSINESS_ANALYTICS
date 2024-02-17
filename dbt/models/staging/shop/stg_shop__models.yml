@@ -1,0 +1,150 @@
+version: 2
+models:
+  - name: stg_shop__orders
+    description: A table containing each customer's orders
+    columns:
+      - name: order_id
+        description: Unique identifier for each order placed. Primary key of the table
+        tests:                
+          - unique
+          - not_null
+      - name: customer_id
+        description: Unique identifier for each customer. Foreign key to reference customer_table
+        tests:
+          - not_null
+      - name: unit_price
+        description: The unit price of each product ordered
+        tests: 
+          - not_null          
+      - name: quantity
+        description: Quanity of products ordered for a single transaction
+        tests: 
+          - not_null
+      - name: product_id
+        description: Unique identifier of product purchased
+        tests:           
+          - not_null
+      - name: order_type
+        description: '{{ doc("order_type") }}'
+        tests: 
+          - accepted_values:
+             values: 
+               - walk-in
+               - online
+      - name: transaction_status
+        description: '{{ doc("transaction_status") }}'          
+        tests:
+          - accepted_values:
+             values: 
+               - completed
+               - cancelled 
+      - name: amount_spent
+        description: Total amount spent on each order. Multiplication of unit price with quanity 
+        tests:       
+          - not_null
+       
+  - name: stg_shop__customers
+    description: A table containing each customer's details
+    columns: 
+      - name: customer_id
+        description: Unique identifier for each customer 
+        tests:
+         - unique 
+         - not_null
+      - name: first_name
+        description: First name of each customer
+        tests:
+          - not_null                       
+      - name: last_name
+        description: Last name of each customer
+        tests:
+          - not_null
+      - name: customer_name
+        description: Full name of the customer. That is combination of first and last name.
+        tests:         
+          - not_null
+      - name: email
+        description: Email address of each customer
+        tests: 
+          - dbt_expectations.expect_column_values_to_match_regex:
+             regex: "^[A-Z0-9+_.-]+@[A-Z0-9.-]+$"             
+      - name: phone_number
+        description: Phone number of each customer
+        # tests:
+        #   - dbt_expectations.expect_column_values_to_match_regex:
+        #     regex: "^(\+?\d{1,3}\s?)?(\(?\d{1,4}\)?[-.\s]?)?\d{1,4}([-.\s]?\d{1,5})?$"
+      - name: customer_location
+        description: Location of customer 
+        tests:         
+          - not_null
+      - name: birth_date
+        description: Customer's date of birth 
+        tests:
+          - not_null
+      - name: customer_age
+        description: Age of customer. Calculated by subtracting the birth date from current day
+        #tests: 
+      - name: age_group
+        description: '{{ doc("age_group") }}'
+        tests:
+          - accepted_values:
+             values: 
+               - Child
+               - Youth
+               - Young Adult
+               - Middle Aged 
+      - name: cust_created_at
+        description: Date the customer's information was created             
+  
+  - name: stg_shop__products 
+    description: Staging table. A cleaned version of products_table for downstream models        
+    columns: 
+      - name: product_id
+        description: Unique identifier for each product. Primary key
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        description: Name of each product
+        tests: 
+          - not_null
+
+      - name: product_description
+        description: Description of the product
+      - name: selling_price
+        description: Selling price of product
+        tests:
+          - not_null
+      - name: prod_created_at
+        description: Date each product information was created
+       #tests: 
+  
+  - name: stg_shop__customer_reviews
+    description: Staging table. A cleaned version of customer_reviews_table for downstream models
+    columns:
+      - name: review_id
+        description: Unique identifier for each review 
+        tests:
+          - unique   
+          - not_null
+      - name: customer_id
+        description: Unique identifier for each customer
+      - name: nps_score
+        description: '{{ doc("nps_score") }}'
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: 0
+             max_value: 10
+      - name: csat_score
+        description: '{{ doc("csat_score") }}'
+        tests: 
+        - dbt_expectations.expect_column_values_to_be_between:
+            min_value: 0
+            max_value: 100
+      - name: reviews
+        description: Review written by a customer
+      - name: review_date
+        description: Date in which the review was created
+        tests:
+          - not_null
