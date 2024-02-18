@@ -3,9 +3,9 @@ diversifyshop:
     outputs:
         dev:
             type: postgres
-            host: localhost     #host.docker.internal
+            host: host.docker.internal #localhost     
             user: postgres
-            password: 'chibuoke3456'
+            password: '##'
             port: 5432
             dbname: diversifyshop
             schema: dbt_juliet_dev

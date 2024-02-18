@@ -1,5 +1,6 @@
 #IMPORTS
 import pyodbc
+import psycopg2
 import pandas as pd
 from sqlalchemy import create_engine
 
@@ -107,3 +108,53 @@ def src_to_data_platform(src_server, src_username, src_password, src_database, s
 #src_to_data_platform('DESKTOP-O9JQMI9\MSSQLSERVER01,51781', 'src_database', 'sa', 'Supremejulz3456~',
                 # 'src_table_name', 'your_postgres_username', 'your_postgres_password', 'host.docker.internal', '5432',
                  #'your_postgres_database', 'your_destination_table_name')
+
+
+
+def postgres_src_to_data_platform(src_server, src_username, src_password, src_database, src_schema, src_table_name, 
+                         postgres_username, postgres_password, postgres_host, postgres_port, 
+                         postgres_database, dest_schema, destination_table_name):
+    """
+    This function extracts data from one PostgreSQL database and loads it into another PostgreSQL database.
+    
+    Args:
+        src_server: Source PostgreSQL server connection
+        src_username: Username for source PostgreSQL server
+        src_password: Login password to source PostgreSQL
+        src_database: Source PostgreSQL server database of interest
+        src_schema: Schema of source PostgreSQL database 
+        src_table_name: Source table of interest in source PostgreSQL Server 
+        postgres_username: Username for destination PostgreSQL database
+        postgres_password: Login password to destination PostgreSQL
+        postgres_host: Host for destination PostgreSQL database
+        postgres_port: Port that destination PostgreSQL is on
+        postgres_database: Destination PostgreSQL database of interest
+        dest_schema: Destination schema
+        destination_table_name: Destination table of interest in destination PostgreSQL
+
+    """
+    src_cnxn = None
+    dest_engine = None
+    
+    try:
+        # Initialize connection to source PostgreSQL database
+        src_cnxn = psycopg2.connect(host=src_server, database=src_database, user=src_username, password=src_password)
+
+        # Use parameterized query to avoid SQL injection
+        query = f"SELECT * FROM {src_schema}.{src_table_name}"
+        data = pd.read_sql(query, src_cnxn)
+
+        # Create a SQLAlchemy engine to connect to the destination PostgreSQL database
+        dest_engine = create_engine(f'postgresql+psycopg2://{postgres_username}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_database}')
+
+        # Use the to_sql method to insert the data into the destination PostgreSQL table
+        data.to_sql(name=destination_table_name, con=dest_engine, schema=dest_schema, if_exists='replace', index=False)
+        print(f'Data successfully loaded to {destination_table_name} in {postgres_database}!')
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        if src_cnxn:
+            src_cnxn.close()
+        if dest_engine:
+            dest_engine.dispose()
+

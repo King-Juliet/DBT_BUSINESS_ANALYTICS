@@ -2,7 +2,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.models import Variable
 from datetime import datetime, timedelta 
-from packages.functions import src_to_data_platform
+from packages.functions import postgres_src_to_data_platform
 from airflow.operators.email_operator import EmailOperator
 from airflow.utils.edgemodifier import Label
 import os
@@ -25,7 +25,7 @@ default_args = {
 dag = DAG(
     'src_to_data_platform',
     default_args=default_args,
-    description='Extract data from MS SQL server to Postgres Data platform',
+    description='Extract data from transactional Postgres database to Postgres Data platform',
     schedule_interval= None,
     catchup=False,
 )
@@ -48,16 +48,16 @@ dag = DAG(
 
 src_to_platform_customer_reviews_table_task = PythonOperator(
     task_id = 'src_to_platform_customer_reviews_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server':  'host.docker.internal', #'DESKTOP-O9JQMI9\\MSSQLSERVER01,51968', 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop',
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop',
                 'src_schema': 'shop', 
                 'src_table_name':'customer_reviews_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -69,16 +69,16 @@ src_to_platform_customer_reviews_table_task = PythonOperator(
 
 src_to_platform_customers_table_task = PythonOperator(
     task_id = 'src_to_platform_customers_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server': 'host.docker.internal', #'DESKTOP-O9JQMI9\\MSSQLSERVER01,51968', 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop',
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop',
                 'src_schema': 'shop', 
                 'src_table_name':'customers_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -90,16 +90,16 @@ src_to_platform_customers_table_task = PythonOperator(
 
 src_to_platform_orders_table_task = PythonOperator(
     task_id = 'src_to_platform_orders_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server': 'host.docker.internal',#'DESKTOP-O9JQMI9\\MSSQLSERVER01,51968', 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop', 
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop', 
                 'src_schema': 'shop',
                 'src_table_name':'orders_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -112,16 +112,16 @@ src_to_platform_orders_table_task = PythonOperator(
 
 src_to_platform_products_table_task = PythonOperator(
     task_id = 'src_to_platform_products_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server': 'host.docker.internal', #'DESKTOP-O9JQMI9\\MSSQLSERVER01,51968', 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop', 
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop', 
                 'src_schema': 'shop',
                 'src_table_name':'products_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -133,16 +133,16 @@ src_to_platform_products_table_task = PythonOperator(
 
 src_to_platform_card_details_table_task = PythonOperator(
     task_id = 'src_to_platform_card_details_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server': 'host.docker.internal', #'DESKTOP-O9JQMI9\\MSSQLSERVER01,51968', 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop',
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop',
                 'src_schema': 'payments', 
                 'src_table_name':'card_details_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -154,16 +154,16 @@ src_to_platform_card_details_table_task = PythonOperator(
 
 src_to_platform_payments_table_task = PythonOperator(
     task_id = 'src_to_platform_payments_table',
-    python_callable = src_to_data_platform,
+    python_callable = postgres_src_to_data_platform,
     op_kwargs = {
                 'src_server': 'host.docker.internal', #DESKTOP-O9JQMI9\\MSSQLSERVER01,51968 
-                'src_username': 'sa', 
-                'src_password': 'Supremejulz3456~', 
-                'src_database' : 'DiversifyShop',
+                'src_username': 'postgres', 
+                'src_password': '##', 
+                'src_database' : 'srcdiversifyshop',
                 'src_schema': 'payments', 
                 'src_table_name':'payments_table',
                 'postgres_username': 'postgres',
-                'postgres_password': 'chibuoke3456',
+                'postgres_password': '##',
                 'postgres_host': 'host.docker.internal',
                 'postgres_port': '5432',
                 'postgres_database': 'diversifyshop',
@@ -177,4 +177,4 @@ src_to_platform_payments_table_task = PythonOperator(
 
 
 #email_on_failure_task >> 
-Label("Load dataset from SQL Server to Postgres Data platform") >> [src_to_platform_customer_reviews_table_task, src_to_platform_customers_table_task, src_to_platform_orders_table_task, src_to_platform_products_table_task, src_to_platform_card_details_table_task, src_to_platform_payments_table_task]
+Label("Load dataset from transactional Postgres database to Postgres Data platform") >> [src_to_platform_customer_reviews_table_task, src_to_platform_customers_table_task, src_to_platform_orders_table_task, src_to_platform_products_table_task, src_to_platform_card_details_table_task, src_to_platform_payments_table_task]
