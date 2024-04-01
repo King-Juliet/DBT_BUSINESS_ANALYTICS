@@ -66,10 +66,10 @@ x-airflow-common:
     AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
     AIRFLOW__SMTP__START_TLS: False
     AIRFLOW__SMTP__SMTP_SSL: False
-    AIRFLOW__SMTP__SMTP_USER: chibuokejuliet@gmail.com
+    AIRFLOW__SMTP__SMTP_USER: yourmail@gmail.com
     AIRFLOW__SMTP__SMTP_PASSWORD: xxxxxxxx
     AIRFLOW__SMTP__SMTP_PORT: 587
-    AIRFLOW__SMTP__SMTP_MAIL_FROM: chibuokejuliet@gmail.com 
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: yourmail@gmail.com 
     #AWS Credentials
     AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
     AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
