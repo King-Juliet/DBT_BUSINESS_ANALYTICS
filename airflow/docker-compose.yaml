@@ -61,6 +61,21 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    #smtp email notification config
+    AIRFLOW__EMAIL__EMAIL_BACKEND: airflow.utils.email.send_email_smtp
+    AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+    AIRFLOW__SMTP__START_TLS: False
+    AIRFLOW__SMTP__SMTP_SSL: False
+    AIRFLOW__SMTP__SMTP_USER: chibuokejuliet@gmail.com
+    AIRFLOW__SMTP__SMTP_PASSWORD: xxxxxxxx
+    AIRFLOW__SMTP__SMTP_PORT: 587
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: chibuokejuliet@gmail.com 
+    #AWS Credentials
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+
+
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
     # See https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/check-health.html#scheduler-health-check-server
@@ -76,8 +91,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     #mount dbt directory on the airflow docker container
     - C:/Users/USER/dbt_airflow_airbyte/dbt:/opt/airflow/dbt
-    #mount odbc driver directory on the airflow docker container
-    - C:/Windows/SysWOW64/msodbcsql17.dll:/opt/airflow/odbc_driver
+    #mount aws credentials
+    - C:/Users/USER/Downloads/aws_cli_access:/opt/airflow/aws_cli_access
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on

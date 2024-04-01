@@ -2,7 +2,7 @@
 
 {{
     config(
-        target_database = ' '
+        target_database = 'diversifyshop'
         target_schema = 'snapshots'
         unique_key = 'product_id',
         strategy = 'timestamp',
@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT*FROM {{source('sourcename as configured in src file', 'products_table')}}
+SELECT*FROM {{source('payments', 'products_table')}}
 
 {% endsnapshot %}

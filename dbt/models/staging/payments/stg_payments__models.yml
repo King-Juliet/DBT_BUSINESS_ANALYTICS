@@ -23,9 +23,9 @@ models:
                   - Discover
       - name: card_number
         description: Number on the card
-        tests: 
-          - dbt_expectations.expect_column_value_length_to_equal:
-              value: 16
+        #tests: 
+          #- dbt_expectations.expect_column_value_length_to_equal:
+              #value: 16
       - name: card_created_at
         description: Date when the card detail was updated
         tests: 

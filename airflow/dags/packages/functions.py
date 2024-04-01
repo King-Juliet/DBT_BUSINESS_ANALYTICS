@@ -3,6 +3,7 @@ import pyodbc
 import psycopg2
 import pandas as pd
 from sqlalchemy import create_engine
+import boto3
 
 
 
@@ -157,4 +158,19 @@ def postgres_src_to_data_platform(src_server, src_username, src_password, src_da
             src_cnxn.close()
         if dest_engine:
             dest_engine.dispose()
+
+
+
+#FUNCTION TO MOVE FILES TO S3 BUCKET
+def transfer_to_s3(file_path, bucket_name, object_name, extra_args):
+    print(extra_args)
+    #s3 client initialization
+    s3_client = boto3.client("s3")
+    try:
+        #transfer files
+        print(f'Now uploading {object_name}...')
+        s3_client.upload_file(file_path, bucket_name, object_name, ExtraArgs = extra_args)
+        print(f"file uplaoded successfully to s3://{bucket_name}/{object_name}")
+    except Exception as e:
+        print(f"Error {e}")
 

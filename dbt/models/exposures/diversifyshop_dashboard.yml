@@ -6,7 +6,7 @@ exposures:
     maturity: high
     url: #url link to the dashboard
     description: >
-      Dashboard about the business perfromance in terms of sales and customer analytics
+      Dashboard about the business performance in terms of sales and customer analytics
     
     depends_on: 
       - ref('customer_analysis')

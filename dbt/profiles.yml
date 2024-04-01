@@ -3,13 +3,35 @@ diversifyshop:
     outputs:
         dev:
             type: postgres
-            host: host.docker.internal #localhost     
+            host: host.docker.internal #localhost 
             user: postgres
-            password: '##'
+            password: '###'
             port: 5432
             dbname: diversifyshop
-            schema: dbt_juliet_dev
+            schema: dbt_juliet_dev #shema to bild the models in in the postgres
             threads: 4
             
-#run  'dbt debug'  from within a project to test your connection
+# #run  'dbt debug'  from within a project to test your connection
 
+     #target: prod
+     #outputs: 
+        #prod:
+           #type: bigquery
+           #method: service-account
+           #project: GCP_PROJECT_ID
+           #dataset: DBT_DATASET_NAME
+           #threads: 4
+
+
+           # #These fields come from the service account json file
+           #keyfile_json: 
+               #type: xxx
+               #project_id: xxx
+               #private_key_id: xxx
+               #private_key: xxx
+               #client_email: xxx
+               #client_id: xxx
+               #auth_url: xxx
+               #token_uri: xxx
+               #auth_provider_x509_cert_url: xxx
+               #client_x509_cert_url: xxx

@@ -2733,3 +2733,122 @@ SyntaxError: invalid syntax
 [2024-02-17T19:25:32.780+0000] {logging_mixin.py:188} INFO - [2024-02-17T19:25:32.779+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2024-02-17T19:25:32.869+0000] {logging_mixin.py:188} INFO - [2024-02-17T19:25:32.869+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
 [2024-02-17T19:25:32.957+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.696 seconds
+[2024-02-17T23:49:50.711+0000] {processor.py:161} INFO - Started process (PID=47) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:49:50.731+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:49:50.749+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:49:50.748+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:50:01.469+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:50:02.784+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:50:02.783+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:50:02.901+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:50:02.901+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:50:03.192+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 12.510 seconds
+[2024-02-17T23:50:58.010+0000] {processor.py:161} INFO - Started process (PID=104) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:50:58.020+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:50:58.055+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:50:58.054+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:51:06.564+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:51:06.703+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:51:06.702+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:51:06.840+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:51:06.840+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:51:07.030+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 9.043 seconds
+[2024-02-17T23:51:38.420+0000] {processor.py:161} INFO - Started process (PID=168) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:51:38.436+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:51:38.453+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:51:38.452+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:51:44.470+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:51:44.526+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:51:44.525+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:51:44.617+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:51:44.616+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:51:44.879+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 6.480 seconds
+[2024-02-17T23:52:16.127+0000] {processor.py:161} INFO - Started process (PID=227) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:52:16.132+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:52:16.164+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:52:16.163+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:52:21.200+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:52:21.250+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:52:21.249+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:52:21.280+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:52:21.280+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:52:21.351+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 5.294 seconds
+[2024-02-17T23:52:56.157+0000] {processor.py:161} INFO - Started process (PID=287) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:52:56.160+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:52:56.293+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:52:56.168+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:53:04.734+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:53:04.795+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:53:04.794+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:53:04.827+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:53:04.827+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:53:04.883+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 8.743 seconds
+[2024-02-17T23:53:35.948+0000] {processor.py:161} INFO - Started process (PID=348) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:53:35.962+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:53:36.009+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:53:36.008+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:53:48.380+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:53:48.454+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:53:48.452+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:53:48.501+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:53:48.501+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:53:48.553+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 12.620 seconds
+[2024-02-17T23:54:19.360+0000] {processor.py:161} INFO - Started process (PID=408) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:19.381+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:54:19.406+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:19.398+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:22.607+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:22.743+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:22.742+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:54:22.786+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:22.785+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:54:22.947+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 3.596 seconds
+[2024-02-17T23:54:29.626+0000] {processor.py:161} INFO - Started process (PID=425) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:29.628+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:54:29.634+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:29.633+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:32.263+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:54:32.939+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:32.937+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:54:33.018+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:54:33.017+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:54:33.176+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 3.561 seconds
+[2024-02-17T23:55:03.759+0000] {processor.py:161} INFO - Started process (PID=485) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:03.762+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:55:03.767+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:03.766+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:05.194+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:05.630+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:05.629+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:55:05.692+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:05.691+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:55:05.763+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.016 seconds
+[2024-02-17T23:55:36.890+0000] {processor.py:161} INFO - Started process (PID=554) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:36.895+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:55:36.905+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:36.904+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:39.250+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:55:39.387+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:39.386+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:55:39.479+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:55:39.478+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:55:39.573+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.699 seconds
+[2024-02-17T23:56:10.022+0000] {processor.py:161} INFO - Started process (PID=615) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:10.026+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:56:10.032+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:10.031+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:17.666+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:17.929+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:17.928+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:56:17.990+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:17.983+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:56:18.042+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 8.035 seconds
+[2024-02-17T23:56:48.602+0000] {processor.py:161} INFO - Started process (PID=681) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:48.604+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:56:48.609+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:48.608+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:50.580+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:56:50.645+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:50.644+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:56:50.702+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:56:50.702+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:56:50.821+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.226 seconds
+[2024-02-17T23:57:21.434+0000] {processor.py:161} INFO - Started process (PID=741) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:21.436+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:57:21.440+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:21.440+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:23.420+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:23.498+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:23.497+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:57:23.540+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:23.539+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:57:23.617+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.189 seconds
+[2024-02-17T23:57:53.869+0000] {processor.py:161} INFO - Started process (PID=803) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:53.871+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:57:53.875+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:53.874+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:55.203+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:57:55.243+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:55.242+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:57:55.266+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:57:55.265+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:57:55.300+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 1.437 seconds
+[2024-02-17T23:58:25.961+0000] {processor.py:161} INFO - Started process (PID=865) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:58:25.964+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:58:25.971+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:58:25.970+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:58:29.615+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:58:29.673+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:58:29.672+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:58:29.726+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:58:29.725+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:58:29.868+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 3.916 seconds
+[2024-02-17T23:59:00.184+0000] {processor.py:161} INFO - Started process (PID=931) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:00.187+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:59:00.191+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:00.190+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:02.672+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:02.767+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:02.767+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:59:02.853+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:02.852+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:59:02.984+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 2.807 seconds
+[2024-02-17T23:59:33.487+0000] {processor.py:161} INFO - Started process (PID=997) to work on /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:33.490+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/src_to_platform_dag.py for tasks to queue
+[2024-02-17T23:59:33.503+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:33.501+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:36.463+0000] {processor.py:840} INFO - DAG(s) 'src_to_data_platform' retrieved from /opt/airflow/dags/src_to_platform_dag.py
+[2024-02-17T23:59:36.536+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:36.535+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-17T23:59:36.604+0000] {logging_mixin.py:188} INFO - [2024-02-17T23:59:36.603+0000] {dag.py:3823} INFO - Setting next_dagrun for src_to_data_platform to None, run_after=None
+[2024-02-17T23:59:36.681+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/src_to_platform_dag.py took 3.206 seconds

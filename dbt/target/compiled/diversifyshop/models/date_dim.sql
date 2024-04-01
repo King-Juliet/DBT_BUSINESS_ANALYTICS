@@ -139,7 +139,7 @@ all_periods as (
     select (
         
 
-    cast('1990-01-01' as TIMESTAMP) + ((interval '1 day') * ((row_number() over (order by 1) - 1)))
+    cast('1990-01-01' as timestamp) + ((interval '1 day') * ((row_number() over (order by 1) - 1)))
 
 
     ) as date_day
@@ -151,7 +151,7 @@ filtered as (
 
     select *
     from all_periods
-    where date_day <= cast('2050-12-31' as TIMESTAMP)
+    where date_day <= cast('2050-12-31' as timestamp)
 
 )
 
@@ -161,7 +161,7 @@ select * from filtered
 
 )
 select
-    cast(d.date_day as TIMESTAMP) as date_day
+    cast(d.date_day as timestamp) as date_day
 from
     date_spine d
 
@@ -200,7 +200,7 @@ select
     d.prior_year_date_day as prior_year_date_day,
     d.prior_year_over_year_date_day,
     -- Monday(1) to Sunday (7)
-        cast(date_part('isodow', d.date_day) as INT) as day_of_week,
+        cast(date_part('isodow', d.date_day) as integer) as day_of_week,
 
     to_char(d.date_day, 'FMDay') as day_of_week_name,
     to_char(d.date_day, 'FMDy') as day_of_week_name_short,
@@ -256,7 +256,7 @@ cast(
 
  as date) as prior_year_week_end_date,
     
-cast(to_char(d.date_day, 'WW') as INT) as week_of_year,
+cast(to_char(d.date_day, 'WW') as integer) as week_of_year,
 
     cast(date_trunc('week', d.date_day) as date) as iso_week_start_date,
     cast(
@@ -271,14 +271,14 @@ cast(to_char(d.date_day, 'WW') as INT) as week_of_year,
 
  as date) as prior_year_iso_week_end_date,
     -- postgresql week is isoweek, the first week of a year containing January 4 of that year.
-cast(date_part('week', d.date_day) as INT) as iso_week_of_year,
+cast(date_part('week', d.date_day) as integer) as iso_week_of_year,
 
     
-cast(to_char(d.prior_year_over_year_date_day, 'WW') as INT) as prior_year_week_of_year,
+cast(to_char(d.prior_year_over_year_date_day, 'WW') as integer) as prior_year_week_of_year,
     -- postgresql week is isoweek, the first week of a year containing January 4 of that year.
-cast(date_part('week', d.prior_year_over_year_date_day) as INT) as prior_year_iso_week_of_year,
+cast(date_part('week', d.prior_year_over_year_date_day) as integer) as prior_year_iso_week_of_year,
 
-    cast(date_part('month', d.date_day) as INT) as month_of_year,
+    cast(date_part('month', d.date_day) as integer) as month_of_year,
     to_char(d.date_day, 'FMMonth')  as month_name,
     to_char(d.date_day, 'FMMon')  as month_name_short,
 
@@ -308,7 +308,7 @@ cast(date_part('week', d.prior_year_over_year_date_day) as INT) as prior_year_is
 
         as date) as date) as prior_year_month_end_date,
 
-    cast(date_part('quarter', d.date_day) as INT) as quarter_of_year,
+    cast(date_part('quarter', d.date_day) as integer) as quarter_of_year,
     cast(date_trunc('quarter', d.date_day) as date) as quarter_start_date,
     
     cast(
@@ -321,7 +321,7 @@ cast(date_part('week', d.prior_year_over_year_date_day) as INT) as prior_year_is
 
  as date) as quarter_end_date,
 
-    cast(date_part('year', d.date_day) as INT) as year_number,
+    cast(date_part('year', d.date_day) as integer) as year_number,
     cast(date_trunc('year', d.date_day) as date) as year_start_date,
     cast(cast(
         

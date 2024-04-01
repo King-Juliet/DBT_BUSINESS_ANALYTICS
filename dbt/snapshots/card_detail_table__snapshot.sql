@@ -2,7 +2,7 @@
 
 {{
     config(
-        target_database = ' '
+        target_database = 'diversifyshop'
         target_schema = 'snapshots'
         unique_key = 'card_id',
         strategy = 'timestamp',
