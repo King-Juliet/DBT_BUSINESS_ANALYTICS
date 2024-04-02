@@ -23,3 +23,5 @@ s3 bucket with public access enabled
 # How To Make Use Of The Project
 
 Link to medium article: 
+
+https://medium.com/@chibuokejuliet/building-robust-data-pipeline-with-dbt-and-apache-airflow-4dd3657593e8
